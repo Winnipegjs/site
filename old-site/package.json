@@ -10,7 +10,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
-    "ejs": "0.8.x",
+    "ejs": "2.7.x",
     "express": "3.0.0rc1",
     "lodash": "2.4.1",
     "meta-marked": "0.3.1",
