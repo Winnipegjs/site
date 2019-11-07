@@ -1,0 +1,31 @@
+<% include ../top %>
+<% include event-scripts %>
+
+
+<% include _google-map %>
+<div class="description">
+	<h1><%= event.title %></h1>
+	<time datetime="<%= event.date %>"><%=: event.date | formatDate %> @
+	<%= event.location.name %>
+	<%= event.location.instructions ? event.location.instructions : '' %>
+	</time>
+	<% if(event.isUpcoming) { %>
+		<% if (event.hasOwnProperty('rsvpLink')) { %>
+		<p><a href="<%= event.rsvpLink %>">Please RSVP to the event.</a></p>
+		<% } else { %>
+		<p style="font-style: italic">RSVPs are not open yet. Keep an eye on your inbox for an invite to RSVP.</p>
+		<% } %>
+	<% } %>
+
+	<%- event.html %>
+
+
+	<% if (event.isUpcoming) { %>
+	<div class="footnote">
+		<p>Note: the exact topics will be subject to change due to time and other considerations. If you have other ideas for talks, or want to tell us what we *must* cover contact us on twitter <a href="http://www.twitter.com/winnipegjs">@winnipegjs</a>.</p>
+		<p>Remember to RSVP to the event if you are planning on attending. Hope to see you all there!</p>
+	</div>
+	<% } %>
+</div>
+
+<% include ../bottom %>
